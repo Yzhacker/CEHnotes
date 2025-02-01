@@ -8,6 +8,8 @@ https://www.linkedin.com/pulse/ceh-practical-exam-all-you-need-know-xiotz-exzpf/
 
 https://xiotz.com/ceh-practical-exam-my-first-try-victory/
 
+https://github.com/Samsar4/Ethical-Hacking-Labs
+
 https://medium.com/techiepedia/certified-ethical-hacker-practical-exam-guide-dce1f4f216c9
 
 https://tryhackme.com/r/room/lianyu
