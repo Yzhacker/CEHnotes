@@ -1,6 +1,7 @@
 # CEHnotes
 
 01 A grande Ajuda https://github.com/DarkLycn1976/CEH-Practical-Notes-and-Tools?tab=readme-ov-file
+02  Usando as ferramentas - https://github.com/hunterxxx/CEH-v12-Practical
 
 https://github.com/cmuppin/CEH/blob/main/CEH-Prac%20Guide
 
