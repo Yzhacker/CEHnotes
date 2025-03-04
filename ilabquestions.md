@@ -104,7 +104,11 @@ https://bookshelf.vitalsource.com/reader/books/9798894721378/pageid/4154
 
 https://tryhackme.com/room/blue
 
-ms17-010 - eternal blue
+ms17-010 - eternal blue  SMB(Server Message Block) 
+139/tcp   open  netbios-ssn
+445/tcp   open  microsoft-ds
+nmap -script vuln -Pn <machine_ip>
+
 msfconsole
 search ms17-010 
 use exploit/windows/smb/ms17_010_eternalblue or choose number
@@ -134,6 +138,13 @@ Input Stego File < imagem que possa esta encryptada >
 Output Folder For Messager File < mensagem extraida caso tenha >
 Password ? exemplo Batman, qwerty@123, imagination 
 
+## 
+Falta ver smb://
+sqlmap
+whatweb
+Nikto
+
+https://github.com/hunterxxx/CEH-v12-Practical
 
 
 
